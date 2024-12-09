@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51e94217-ca76-4647-9aa7-580a3343c0ca" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sin_numpy.py" beforeDir="false" afterPath="$PROJECT_DIR$/sin_numpy.py" afterDir="false" />
     </list>
@@ -68,7 +67,7 @@
       <option name="presentableId" value="Default" />
       <updated>1733766642303</updated>
       <workItem from="1733766643424" duration="277000" />
-      <workItem from="1733766957383" duration="538000" />
+      <workItem from="1733766957383" duration="1577000" />
     </task>
     <servers />
   </component>
