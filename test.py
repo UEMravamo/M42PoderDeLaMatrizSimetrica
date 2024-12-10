@@ -10,16 +10,21 @@ def genmatrix_sim(n):
     return A
 
 #Realizar logica del  la matriz
-def matrix_sim(n,A,K):
+def matrix_sim(A,K):##cambio la n no hacia falta 
+    for k in range(K):
+        A = np.dot(A, A)
     
-    return 0
+    return np.round(A, 2)#requisito ya que debemos redondear a 2 decimales 
 
 if __name__ == "__main__":
     
     print("Generar matriz:")
     A = genmatrix_sim(3)
-    print(A)
-
+    print(np.round(A, 2))#requisito ya que debemos redondear a 2 decimales 
+    K = 2
+    print("Resultado: ")
+    resultado = matrix_sim(A, K)
+    print(resultado)
    
 
     
