@@ -1,16 +1,15 @@
 import numpy as np
-from collections import defaultdict
 
 
-N = 5
-A = np.zeros((N, N))
+def generador_matrices(N):
+    A = np.zeros((N, N))
 
-for i in np.arange(0, N):
-    for j in np.arange(i, N):
-        A[i][j] = np.random.randn(1)*(-1)**(i+j)
-        A[j][i] = A[i][j]
+    for i in np.arange(0, N):
+        for j in np.arange(i, N):
+            A[i][j] = np.random.randn(1)*(-1)**(i+j)
+            A[j][i] = A[i][j]
 
-A = np.round(A + np.diag(np.ones(N)), 2)
+    return np.round(A + np.diag(np.ones(N)), 2)
 
 
 def exponenciacion_binaria(matriz, potencia):
@@ -26,6 +25,8 @@ def exponenciacion_binaria(matriz, potencia):
 
 
 potencia = 13
+size_matriz = 5
+A = generador_matrices(size_matriz)
 result = exponenciacion_binaria(A, potencia)
 expected_result = np.round(np.linalg.matrix_power(A, potencia), 2)
 print("Deberia dar\n", expected_result)
