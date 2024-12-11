@@ -1,30 +1,34 @@
 import numpy as np
-
-n = 3
-k = 16
-
-A = np.array([[2, 1, -1],
-              [-1, 0, 1],
-              [-1, -1, 2]])
-
-exp = []
+from collections import defaultdict
 
 
-def recursivo(exponente):
-    exp.insert(0, exponente)
-    if exponente == 0:
-        return 1
-    elif exponente == 1:
-        return A
-    else:
-        return recursivo(exponente // 2)
+N = 5
+A = np.zeros((N, N))
+
+for i in np.arange(0, N):
+    for j in np.arange(i, N):
+        A[i][j] = np.random.randn(1)*(-1)**(i+j)
+        A[j][i] = A[i][j]
+
+A = np.round(A + np.diag(np.ones(N)), 2)
 
 
-recursivo(16)
+def exponenciacion_binaria(matriz, potencia):
+    potencia = bin(potencia)[2:]
+    rv = np.eye(len(matriz))
+    pre = matriz
+    for bit in reversed(potencia):
+        if bit == "1":
+            rv = np.dot(rv, pre)
+        pre = np.dot(pre, pre)
 
-for n in exp:
-    if n == 1:
-        continue
-    A = np.dot(A, A)
+    return np.round(rv, 2)
 
-print(A)
+
+potencia = 13
+result = exponenciacion_binaria(A, potencia)
+expected_result = np.round(np.linalg.matrix_power(A, potencia), 2)
+print("Deberia dar\n", expected_result)
+print("Resultado Calculado\n", result)
+test = np.allclose(result, expected_result, atol=1e-3)
+print(test)
