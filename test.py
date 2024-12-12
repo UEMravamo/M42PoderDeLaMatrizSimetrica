@@ -10,14 +10,24 @@ def genmatrix_sim(n):
     return A
 
 #Realizar logica del  la matriz
-def matrix_sim(A,K):##cambio la n no hacia falta 
-    for k in range(K):
+def matrix_sim(A, K):
+    A = np.linalg.matrix_power(A,K)#COrreccion ya que no lo estaba haciendo lo que se pedia, ahora si.
+    return np.round(A, 2)#pese a ello  sin estar en la complejidad deseada O(log(K) * m^3) y estamos en K*m^3.
+
+def matrix_sim2(A, K):#nueva manera  con la complejidad: O(log(K) * m^3).
+    """
+    En los pasados codigos no conseguia obtener la manera optima para lograr la complejidad que queria que era O(log(K) * m^3)
+    y tenia (k*m^3), y tras investigar la mejor manera para hacerlo es  usando  exponenciacion binaria ya que esta tecniac 
+    se basa en la propiedad de asociatividad de la multiplicación y no requiere propiedades adicionales puede ser la simetiar o diagonalizacion.
+    """
+    n = A.shape[0]
+    final = np.eye(n)
+    while K > 0:## En esta parte aplicamos la expoenciacion binaria
+        if K % 2 == 1:
+            final = np.dot(final, A)
         A = np.dot(A, A)
-    
-    return np.round(A, 2)#requisito ya que debemos redondear a 2 decimales 
-def matrix_sim2(A, K):#otra manera de hacerlo 
-    A = np.linalg.matrix_power(A, 2 ** K)
-    return np.round(A, 2)#Seguimos sin estar en la complejidad deseada 
+        K = K // 2
+    return np.round(final, 2)##para cumplir con los requisitos 
 if __name__ == "__main__":
     
     print("Generar matriz:")
