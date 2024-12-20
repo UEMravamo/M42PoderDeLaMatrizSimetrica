@@ -9,8 +9,6 @@ def mult_matrices(A,B ,n): #Para cada elemento en la matriz C, calcula la suma d
     return C
 
 def simplificar_exponente(A,k,n):
-    if k ==0:#si elevas una matriz a 0 da la identidad
-        return [[1 if i == j else 0 for j in range(n)] for i in range(n)]
     elif k ==1:#si elevas una matriz a 1 ppues obtienes la misma
         return A
     elif k %2 == 0:#si k(exponente) es par
