@@ -6,7 +6,7 @@ def generador_matrices(N):
 
     for i in np.arange(0, N):
         for j in np.arange(i, N):
-            A[i][j] = np.random.randn(1)*(-1)**(i+j)
+            A[i][j] = np.random.randn() * (-1) ** (i + j)
             A[j][i] = A[i][j]
 
     return np.round(A + np.diag(np.ones(N)), 2)
