@@ -1,9 +1,11 @@
 #para comparar tiempos
 import timeit
 import numpy as np
-#importamos las funciones de los scripts que vamos a comparar en tiempo
-from sin_numpy_exponenciacion_rapida import elevar_matriz_a_potencia_exponenciacion_rapida
+#importamos las funciones de los scripts_descartados que vamos a comparar en tiempo
+from test_sin_numpy_exponenciacion_rapida import elevar_matriz_a_potencia_exponenciacion_rapida
 from exponenciacion_binaria import exponenciacion_binaria
+
+
 
 # Matriz con nums de tres cifras 3 * 3 sencilla
 matriz = [

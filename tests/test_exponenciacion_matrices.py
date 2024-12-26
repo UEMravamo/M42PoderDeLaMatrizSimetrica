@@ -2,10 +2,12 @@
 
 import pytest
 import numpy as np
-from sin_numpy_exponenciacion_rapida import (
-    elevar_matriz_a_potencia_exponenciacion_rapida,
-    multiplicar_matrices,
-)
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from scripts_descartados.sin_numpy_exponenciacion_rapida import elevar_matriz_a_potencia_exponenciacion_rapida, multiplicar_matrices
+
 from exponenciacion_binaria import generador_matrices, exponenciacion_binaria
 
 
