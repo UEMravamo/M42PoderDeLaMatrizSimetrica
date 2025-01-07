@@ -40,20 +40,25 @@ def evaluar_casos_practicos():
         # Generar matriz simétrica
         A = generador_matrices(N)
         print(f"Matriz generada:\n{A}")
+        # Ejecutar 100 veces y calcular el promedio del tiempo
+        tiempos = []
+        resultado_final = None
+        for _ in range(100):
+            inicio = time.time()
+            Ak = exponenciacion_binaria(A, k)
+            fin = time.time()
+            tiempos.append(fin - inicio)
+            resultado_final = Ak  # Guardamos el último resultado
 
-        # Medir tiempo de ejecución
-        inicio = time.time()
-        Ak = exponenciacion_binaria(A, k)
-        fin = time.time()
+        promedio_tiempo = sum(tiempos) / len(tiempos)
 
         # Guardar resultados
-        tiempo = fin - inicio
-        print(f"Resultado:\n{Ak}")
-        print(f"Tiempo de ejecución: {tiempo:.4f} segundos\n")
+        print(f"Resultado:\n{resultado_final}")
+        print(f"Promedio del tiempo de ejecución: {promedio_tiempo:.4f} segundos\n")
 
-        resultados.append({"N": N, "k": k, "tiempo": tiempo, "resultado": Ak})
+        resultados.append({"N": N, "k": k, "tiempo_promedio": promedio_tiempo, "resultado": resultado_final})
 
     return resultados
 
 # Ejecutar la evaluación
-resultados = evaluar_casos_practicos()
+resultados = evaluar_casos_practicos()  
