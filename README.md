@@ -20,27 +20,25 @@ El Reino de las Matrices está en peligro. La malvada Matriz \( A \), un antiguo
 
 $$
 \begin{pmatrix}
-  2& 1 & -1 \\
-  -1 & 0 & 1 \\
-  -1 & -1 & 2
+  2& 1\\
+  1 & 2 
 \end{pmatrix}
 $$
 
 ## **Salida**  
 Una matriz $$( A^k )$$ de tamaño $$\( n \times n \)$$, con sus valores redondeados a 2 decimales si es necesario.  
 
-Resultado: $$(A^4)$$
+Resultado: $$(A^3)$$
 
 $$
 \begin{pmatrix}
-  46& -5 & -35 \\
-  -5 & 6 & -5 \\
-  -35 & -5 & 46
+  14& 13\\
+  13& 14
 \end{pmatrix}
 $$
 
 ## **Habilidades Especiales (Tips)**  
-- Usa el **hechizo de Exponenciación Rápida para Matrices** para dominar el poder de \( A \) en menos pasos.  
+- Usa el **hechizo de Exponenciación Rápida para Matrices** para dominar el poder de \( A \) en menos pasos. O podeis usar **La gema de la Diagonalización** pero para ello teneis que tener el tesoro del Algebra.
 - La simetría de \( A \) puede ser tu aliada secreta: ¡aprovéchala para optimizar los cálculos!  
 - Prepara tu arsenal matemático para números grandes. Si las dimensiones son gigantes, podrías necesitar controlar los desbordamientos.  
 
@@ -57,6 +55,7 @@ Si logras controlar el poder de la matriz, serás coronado como **Maestro del Re
 
 ## **Requisitos**
 El orden de complejidad tiene que estar entre **$$O(m^3)$$** para valores propios o **$$O(log(n)⋅m^3)$$**
+Para tranquilidad de Adrian y su preocupaciòn con n y m, añado esta definición para que se tenga todo los mas claro posible y entender la complejidad $$[\forall n, m \in \mathbb{R}_{\geq 0}, \, n = m\]$$
 
 🎮 **¡Prepárate para la batalla matemática!** 🚀  
 
