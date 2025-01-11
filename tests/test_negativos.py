@@ -1,6 +1,7 @@
 import numpy as np
 import time
-from tests.santi.num_negativos import generador_matrices, generador_matrices_negativas, exponenciacion_binaria
+from tests.num_negativos import generador_matrices, generador_matrices_negativas, exponenciacion_binaria
+
 
 def test_exponenciacion_binaria_matrices_negativas():
     """
@@ -10,10 +11,11 @@ def test_exponenciacion_binaria_matrices_negativas():
     size_matriz = 5
     potencia = 100  # Exponente alto
     A = generador_matrices_negativas(size_matriz)
-    
+
     result = exponenciacion_binaria(A, potencia)
     expected_result = np.round(np.linalg.matrix_power(A, potencia), 2)
-    if np.allclose(result, expected_result, atol=1e-3):  # comprobamos  si los resultados son similares
+    # comprobamos  si los resultados son similares
+    if np.allclose(result, expected_result, atol=1e-3):
         print("Resultado para matrices negativas: Superado")
     else:
         print("Resultado para matrices negativas: Fallido")
@@ -21,6 +23,7 @@ def test_exponenciacion_binaria_matrices_negativas():
         print(expected_result)
         print("Resultado que nos ha dado:")
         print(result)
+
 
 def test_exponenciacion_binaria_comparar_rendimiento():
     """
