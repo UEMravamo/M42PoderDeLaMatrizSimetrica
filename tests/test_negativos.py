@@ -1,6 +1,6 @@
 import numpy as np
 import time
-from tests.num_negativos import generador_matrices, generador_matrices_negativas, exponenciacion_binaria
+from num_negativos import generador_matrices, generador_matrices_negativas, exponenciacion_binaria
 
 
 def test_exponenciacion_binaria_matrices_negativas():
