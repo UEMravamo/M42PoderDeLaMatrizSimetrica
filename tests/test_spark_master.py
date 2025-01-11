@@ -4,7 +4,8 @@ import psutil
 from pyspark.sql import SparkSession, Row
 
 
-spark = SparkSession.builder.master("local[1]").appName("exponenciacionMatrices").getOrCreate()
+spark = SparkSession.builder.master("local[1]").appName(
+    "exponenciacionMatrices").getOrCreate()
 
 
 def generador_matrices(N):
@@ -14,6 +15,7 @@ def generador_matrices(N):
             A[i][j] = np.random.randn(1) * (-1) ** (i + j)
             A[j][i] = A[i][j]
     return np.round(A + np.diag(np.ones(N)), 2)
+
 
 def exponenciacion_binaria(matriz, potencia):
     potencia = bin(potencia)[2:]
@@ -43,7 +45,8 @@ def realizar_prueba(row):
     for _ in range(100):
         matriz = generador_matrices(dimension)
         inicio_tiempo_binario = time.time()
-        _, cpu_promedio, ram_promedio = exponenciacion_binaria(matriz, exponente)
+        _, cpu_promedio, ram_promedio = exponenciacion_binaria(
+            matriz, exponente)
         tiempo_binario = time.time() - inicio_tiempo_binario
 
         tiempos.append(tiempo_binario)
@@ -73,7 +76,8 @@ resultados = config_df.rdd.map(realizar_prueba).collect()
 
 
 for resultado in resultados:
-    print(f"Matriz {resultado.dimension}x{resultado.dimension}, Potencia {resultado.exponente}")
+    print(f"Matriz {resultado.dimension}x{
+          resultado.dimension}, Potencia {resultado.exponente}")
     print(f"Tiempo promedio: {resultado.tiempo_promedio:.6f}s")
     print(f"CPU promedio: {resultado.cpu_promedio:.2f}%")
     print(f"RAM promedio: {resultado.ram_promedio:.2f}%")
@@ -81,4 +85,3 @@ for resultado in resultados:
 
 
 spark.stop()
-

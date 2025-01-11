@@ -1,6 +1,7 @@
 import numpy as np
 import time
 
+
 def generador_matrices(N):
     A = np.zeros((N, N))
 
@@ -14,7 +15,8 @@ def generador_matrices(N):
 
 def exponenciacion_binaria(matriz, potencia):
     potencia = bin(potencia)[2:]  # bin(X) -> 0bXXXXX. Retiramos prefijo
-    rv = np.eye(len(matriz))  # Matriz identidad de una matrix NxN # This line had an extra space, removed it to align with the function definition
+    # Matriz identidad de una matrix NxN # This line had an extra space, removed it to align with the function definition
+    rv = np.eye(len(matriz))
     pre = matriz
     # Orden inverso para empezar por el bit menos significativo.
     for bit in reversed(potencia):
@@ -24,6 +26,8 @@ def exponenciacion_binaria(matriz, potencia):
 
     return np.round(rv, 2)
 # Evaluación en casos prácticos
+
+
 def evaluar_casos_practicos():
     casos = [
         {"N": 2, "k": 5},
@@ -54,11 +58,14 @@ def evaluar_casos_practicos():
 
         # Guardar resultados
         print(f"Resultado:\n{resultado_final}")
-        print(f"Promedio del tiempo de ejecución: {promedio_tiempo:.4f} segundos\n")
+        print(f"Promedio del tiempo de ejecución: {
+              promedio_tiempo:.4f} segundos\n")
 
-        resultados.append({"N": N, "k": k, "tiempo_promedio": promedio_tiempo, "resultado": resultado_final})
+        resultados.append(
+            {"N": N, "k": k, "tiempo_promedio": promedio_tiempo, "resultado": resultado_final})
 
     return resultados
 
+
 # Ejecutar la evaluación
-resultados = evaluar_casos_practicos()  
+resultados = evaluar_casos_practicos()
