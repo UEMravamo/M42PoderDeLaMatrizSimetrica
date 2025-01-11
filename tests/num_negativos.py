@@ -10,15 +10,15 @@ def generador_matrices(n):
     A += np.diag(np.ones(n))
     return A
 
+
 def generador_matrices_negativas(n):
     A = np.zeros((n, n))
     for i in range(n):
         for j in range(i, n):
-            A[i, j] = -abs(np.random.randn())  
-            A[j, i] = A[i, j]  
+            A[i, j] = -abs(np.random.randn())
+            A[j, i] = A[i, j]
     A += np.diag(-np.ones(n))
     return A
-
 
 
 def exponenciacion_binaria(matriz, potencia):
